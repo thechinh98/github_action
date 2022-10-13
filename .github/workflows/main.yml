@@ -22,4 +22,4 @@ jobs:
         uses: ncipollo/release-action@develop
         with:
           artifacts: "build/app/outputs/apk/debug/*.apk"
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.CHINH1998_CMC }}
