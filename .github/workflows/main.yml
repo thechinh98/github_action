@@ -17,9 +17,11 @@ jobs:
         with:
           flutter-version: '3.3.4'
       - run: flutter pub get
+      - name: Analyze Dart
+          uses: zgosalvez/github-actions-analyze-dart@v1
       - run: flutter build apk
-      - name: Create a Release APK
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "build/app/outputs/apk/debug/*.apk"
-          token: ${{ secrets.CHINH1998_CMC }}
+#      - name: Create a Release APK
+#        uses: ncipollo/release-action@v1
+#        with:
+#          artifacts: "build/app/outputs/apk/debug/*.apk"
+#          token: ${{ secrets.CHINH1998_CMC }}
