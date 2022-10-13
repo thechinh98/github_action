@@ -1,0 +1,25 @@
+on:
+  pull_request:
+  push:
+    branches:
+      - develop
+name: Build
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-lastest
+    steps:
+      - uses: actions/checkout@develop
+      - uses: actions/setup-java@develop
+        with:
+          java-version: '12.x'
+      - uses: sibosito/flutter-action@develop
+        with:
+          flutter-version: '3.3.4'
+      - run: flutter pub get
+      - run: flutter build apk --flavor dev lib/flavors/main_develop.dart
+      - name: Create a Release APK
+        uses: ncipollo/release-action@develop
+        with:
+          artifacts: "build/app/outputs/apk/debug/*.apk"
+          token: ${{ secrets.TOKEN }}
