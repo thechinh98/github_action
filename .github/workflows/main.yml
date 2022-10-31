@@ -19,7 +19,7 @@ jobs:
       - run: flutter pub get
 
       - name: Format code
-        run: flutter format --set-exit-if-change .
+        run: flutter format --set-exit-if-changed .
 
       - name: Analyze Dart
         run: flutter analyze
