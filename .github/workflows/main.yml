@@ -17,8 +17,13 @@ jobs:
         with:
           flutter-version: '3.3.4'
       - run: flutter pub get
+
+      - name: Format code
+        run: flutter format --set-exit-if-change
+
       - name: Analyze Dart
-          uses: zgosalvez/github-actions-analyze-dart@v1
+        run: flutter analyze
+
       - run: flutter build apk
 #      - name: Create a Release APK
 #        uses: ncipollo/release-action@v1
